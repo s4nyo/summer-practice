@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+ 
+int main() {
+    vector<ll> before;
+    char dot;
+    vector<ll> after;
+    ll x, y;
+    
+    while (cin >> x >> dot >> y){
+        before.push_back(x);
+        after.push_back(y);
+    }
+    
+    ll sum_b = accumulate(before.begin(), before.end(), 0LL);
+    ll sum_a = accumulate(after.begin(), after.end(), 0LL);
+    
+    sum_b += sum_a / 1000000000000000;
+    sum_a %= 1000000000000000;
+    
+    cout << sum_b << "." << setw(15) << setfill('0') << sum_a;
+    return 0;
+}
